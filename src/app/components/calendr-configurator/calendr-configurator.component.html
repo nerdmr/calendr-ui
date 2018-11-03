@@ -1,0 +1,79 @@
+<div class="flex-row">
+  <div class="flex-child">
+    <!-- Options panel -->
+    <div class="calendr-config">
+      <div class="configuration-field">
+        <label for="columns">Columns</label>
+        <input
+          type="text"
+          name="columns"
+          (blur)="updateConfig()"
+          [(ngModel)]="calrendrConfig.columns">
+      </div>
+      <div class="configuration-field">
+        <label for="calPadding">Calendar Padding</label>
+        <input
+          type="text"
+          name="calPadding"
+          (blur)="updateConfig()"
+          [(ngModel)]="calrendrConfig.paperPadding">
+      </div>
+      <div class="configuration-field">
+        <label for="gridSpacing">Grid Spacing</label>
+        <input
+          type="text"
+          name="gridSpacing"
+          (blur)="updateConfig()"
+          [(ngModel)]="calrendrConfig.elementPadding">
+      </div>
+      <div class="configuration-field">
+        <label for="titleHeight">Title Height</label>
+        <input
+          type="text"
+          name="titleHeight"
+          (blur)="updateConfig()"
+          [(ngModel)]="calrendrConfig.titleHeight">
+      </div>
+      <div class="configuration-field">
+        <label for="titleFont">Title Font</label>
+        <input
+          type="text"
+          name="titleFont"
+          (blur)="updateConfig()"
+          [(ngModel)]="calrendrConfig.titleFont">
+      </div>
+
+      <div class="configuration-field">
+        <label for="calendarFont">Calendar Font</label>
+        <input
+          type="text"
+          name="calendarFont"
+          (blur)="updateConfig()"
+          [(ngModel)]="calrendrConfig.monthRenderer.fontFamily">
+      </div>
+      <div *ngIf="calrendr && calrendr.pngData">
+
+        <button (click)="generatePdf()">Generate PDF</button>
+      </div>
+    </div>
+  </div>
+  <div class="flex-child">
+    <!-- Calendr preview -->
+    <div class="calendr-container">
+      <div class="calendr">
+        <canvas id="calenvas">
+
+          <!-- OPTION 1: leave a message here if browser doesn't support canvas -->
+            <p>Your browser doesn’t currently support HTML5 Canvas.
+            Please check caniuse.com/#feat=canvas for information on
+            browser support for canvas.</p>
+
+          <!-- OPTION 2: put fallback content (text, image, Flash, etc.)
+                         if the browser doesn't support canvas -->
+
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
